@@ -86,21 +86,64 @@
   .contact .email:hover { color: var(--gold); }
   .contact .btn { width: 100%; justify-content: center; }
 
+  /* The Ark project */
+  .ark { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 32px; }
+  .ark-intro { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: start; }
+  .ark-intro p { margin: 0 0 14px; }
+  .ark-intro p:last-child { margin: 0; }
+  .lede { font-size: 1.08rem; }
+  .inspired { background: var(--panel-2); border: 1px solid var(--line); border-left: 4px solid var(--orange);
+              border-radius: 14px; padding: 18px 20px; color: var(--muted); font-size: .95rem; }
+  .inspired strong { color: var(--text); }
+  h3.sub { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 30px 0 14px; }
+  .changes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .changes li { background: var(--panel-2); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px;
+                font-size: .93rem; color: var(--muted); line-height: 1.55; }
+  .changes code { color: var(--gold); font-size: .9em; }
+  .changes b { display: block; color: var(--text); font-size: 1rem; margin-bottom: 4px; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0; }
+  .shots figure { margin: 0; }
+  .shots a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line);
+             transition: border-color .15s, transform .15s; }
+  .shots a:hover { border-color: var(--orange); transform: translateY(-2px); }
+  .shots img { display: block; width: 100%; height: auto; }
+  .shots figcaption { color: var(--muted); font-size: .85rem; margin-top: 8px; }
+  .install { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; margin-top: 30px;
+             background: var(--panel-2); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+  .install h3 { margin: 0 0 6px; font-size: 1.15rem; }
+  .install p { margin: 0 0 14px; color: var(--muted); font-size: .95rem; }
+  .cmd { display: flex; align-items: stretch; background: #0b0c11; border: 1px solid #3a4055; border-radius: 12px; overflow: hidden; }
+  .cmd code { flex: 1; padding: 14px 16px; font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+              color: #f4d9b0; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .cmd button { flex: none; border: 0; border-left: 1px solid var(--line); background: var(--panel-2); color: var(--text);
+                font: 600 .85rem system-ui, sans-serif; padding: 0 16px; cursor: pointer; }
+  .cmd button:hover { color: var(--gold); }
+  .needs { margin: 12px 0 0; padding-left: 1.1em; color: var(--muted); font-size: .88rem; }
+  .needs li::marker { color: var(--orange); }
+  .install > div, .ark-intro > div, .cmd code { min-width: 0; }
+  .install .side { display: flex; flex-direction: column; gap: 10px; }
+  .install .side .btn { justify-content: center; }
+  .install .side small { color: var(--muted); text-align: center; font-size: .82rem; }
+
   footer { border-top: 1px solid var(--line); margin-top: 24px; padding: 28px 0 40px; color: var(--muted); font-size: .9rem; }
   footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   footer a { color: var(--muted); text-decoration: none; }
   footer a:hover { color: var(--text); }
 
-  @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } .media { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: repeat(2, 1fr); } .media { grid-template-columns: 1fr; }
+    .ark-intro, .install { grid-template-columns: 1fr; } .changes { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 520px) {
     body { font-size: 16px; }
     .hero { padding-top: 48px; }
-    .grid { grid-template-columns: 1fr; }
-    .about, .media { padding: 22px; border-radius: 16px; }
+    .grid, .changes, .shots { grid-template-columns: 1fr; }
+    .about, .media, .ark { padding: 22px; border-radius: 16px; }
+    .install { padding: 18px; }
     .contact { padding: 18px 14px; }
     .cta .btn { width: 100%; justify-content: center; }
   }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .shots a { transition: none; } }
 </style>
 </head>
 <body>
@@ -161,6 +204,84 @@
     </div>
   </section>
 
+  <section id="the-ark">
+    <div class="wrap">
+      <div class="ark">
+        <p class="eyebrow">Featured project</p>
+        <h2>The Ark: an offline library and private AI for the house</h2>
+        <div class="ark-intro">
+          <div>
+            <p class="lede">The Ark is one small computer that keeps working when the internet doesn't. Any phone, tablet or
+              laptop on the home Wi-Fi opens one dashboard and gets all of Wikipedia, medical and repair guides, full courses,
+              books, music, an offline map and a private AI chat. Nothing ever leaves the house.</p>
+            <p>It's free and open source, so anyone can build one on their own hardware.</p>
+          </div>
+          <div class="inspired">
+            <strong>Inspired by Project N.O.M.A.D.</strong> The idea started with
+            <a href="https://www.projectnomad.us/" target="_blank" rel="noopener">Project N.O.M.A.D.</a> from
+            <a href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank" rel="noopener">Crosstalk Solutions</a>:
+            offline knowledge, courses, maps and local AI behind one dashboard. I loved the concept and rebuilt it my way,
+            with the tools I wanted, extra features and a lot of tuning for a small, quiet mini PC.
+          </div>
+        </div>
+
+        <h3 class="sub">What I customized</h3>
+        <ul class="changes">
+          <li><b>Ask the Ark</b>A local AI that can search the whole library, look at photos, and listen and talk back
+            with offline voice. The models get plain names like "Quick Answers" and "Deep Thinker".</li>
+          <li><b>Ark Mechanic</b>A repair assistant that knows your own vehicles and equipment and reads the service
+            manuals you add.</li>
+          <li><b>More on the shelf</b>A bookshelf for books and PDFs, a music server for your own library, shared notes
+            and a data toolkit, all on the same dashboard.</li>
+          <li><b>Regional map and mesh radio</b>A street-level offline map of the area you pick, plus Meshtastic and
+            MeshCore clients for off-grid LoRa messaging.</li>
+          <li><b>Tuned for small hardware</b>Fits on a single 512 GB drive. The AI runs fully on a 6 GB GPU at about
+            37 words a second, and the whole box draws 25–45 W.</li>
+          <li><b>Easy for the whole family</b>Open it at <code>ark.local</code>, follow a printable Getting Started
+            guide, and check live GPU and power readings on the dashboard.</li>
+        </ul>
+
+        <h3 class="sub">A look inside</h3>
+        <div class="shots">
+          <figure>
+            <a href="assets/ark/ark-guide.jpg" target="_blank" rel="noopener"><img src="assets/ark/ark-guide.jpg" width="1600" height="1013" loading="lazy" alt="The Ark's Getting Started guide, with links to every section"></a>
+            <figcaption>The built-in Getting Started guide</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/ark/ark-library.jpg" target="_blank" rel="noopener"><img src="assets/ark/ark-library.jpg" width="1600" height="1013" loading="lazy" alt="The Reference Library section: Wikipedia, medical, survival, repair and learning collections"></a>
+            <figcaption>What's in the offline Reference Library</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/ark/ark-ai.jpg" target="_blank" rel="noopener"><img src="assets/ark/ark-ai.jpg" width="1600" height="1013" loading="lazy" alt="Ask the Ark: choosing a local AI model, with a reminder to double-check important answers"></a>
+            <figcaption>Ask the Ark, the private AI chat</figcaption>
+          </figure>
+        </div>
+
+        <div class="install">
+          <div>
+            <h3>Build your own with one command</h3>
+            <p>On a fresh Ubuntu 24.04, Linux Mint 22 or Debian 12 machine, open a terminal and paste:</p>
+            <div class="cmd">
+              <code id="ark-cmd">sudo apt install -y git &amp;&amp; git clone https://github.com/whiskeylabbuilds/the-ark.git ~/ark &amp;&amp; cd ~/ark &amp;&amp; ./install.sh</code>
+              <button type="button" id="copy-cmd" aria-label="Copy the install command">Copy</button>
+            </div>
+            <ul class="needs">
+              <li>The installer asks before each big step and is safe to run again.</li>
+              <li>16 GB RAM recommended, about 500 GB of disk. A graphics card is optional (NVIDIA or AMD).</li>
+            </ul>
+          </div>
+          <div class="side">
+            <a class="btn btn-primary" href="https://github.com/whiskeylabbuilds/the-ark" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+              View on GitHub
+            </a>
+            <small>Full instructions, hardware notes and the MIT license are in the README.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="media">
     <div class="wrap">
       <div class="media">
@@ -197,6 +318,15 @@
   </div>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("copy-cmd").addEventListener("click", function () {
+  var b = this, t = document.getElementById("ark-cmd").textContent;
+  if (!navigator.clipboard) return;
+  navigator.clipboard.writeText(t).then(function () {
+    b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1600);
+  });
+});
+</script>
 </body>
 </html>
